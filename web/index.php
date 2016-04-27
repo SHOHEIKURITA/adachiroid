@@ -45,7 +45,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                         'id' => $from, 
                     ],
                     'message' => [
-                        'text' => sprintf('%sじゃない', $text), 
+                        'text' => sprintf('%sとは言っても鈴木沙絵はインスタ女王', $text), 
                     ],
                 ];
                 $client->request('POST', $path, ['json' => $json]);
