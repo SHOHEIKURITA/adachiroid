@@ -38,17 +38,59 @@ $app->post('/callback', function (Request $request) use ($app) {
             $from = $m['sender']['id'];
             $text = $m['message']['text'];
 
-            if ($text) {
-                $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-                $json = [
-                    'recipient' => [
-                        'id' => $from, 
-                    ],
-                    'message' => [
-                        'text' => sprintf('%sとは言っても鈴木沙絵はインスタ女王', $text), 
-                    ],
-                ];
-                $client->request('POST', $path, ['json' => $json]);
+            switch ($text) {
+
+                case 'あ':
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'text' => sprintf('あ', $text), 
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+                break;
+
+                case 'い':
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'text' => sprintf('い', $text), 
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+                break;
+
+                case 'う':
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'text' => sprintf('う', $text), 
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+                break;
+
+                default:
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'text' => sprintf('%s、ちゃうねん！', $text), 
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+
             }
         }
 
