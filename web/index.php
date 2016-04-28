@@ -79,20 +79,6 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
-                case 'え':
-                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-                    $json = [
-                        'recipient' => [
-                            'id' => $from, 
-                        ],
-                        'message' => [
-                            header('Content-Type: image/jpeg');
-                            readfile('images/28466205.jpeg');
-                        ],
-                    ];
-                    $client->request('POST', $path, ['json' => $json]);
-                break;
-
                 default:
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
