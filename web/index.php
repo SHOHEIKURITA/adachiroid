@@ -85,14 +85,10 @@ $app->post('/callback', function (Request $request) use ($app) {
                         'recipient' => [
                             'id' => $from, 
                         ],
-                        "message":{
-                            "attachment":{
-                                "type":"image",
-                                "payload":{
-                                    "url":"images/28466205.jpeg"
-                                }
-                            }
-                        },
+                        'message' => [
+                            header('Content-Type: image/jpeg');
+                            readfile('images/28466205.jpeg');
+                        ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
                 break;
