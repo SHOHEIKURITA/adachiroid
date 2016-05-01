@@ -73,7 +73,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'id' => $from, 
                         ],
                         'message' => [
-                            //header('Content-Type: image/jpg')
+                            header('Content-Type: image/jpg');
                             'text' => readfile('images/13090170_904137979695719_768070574_n.jpg'), 
                         ],
                     ];
