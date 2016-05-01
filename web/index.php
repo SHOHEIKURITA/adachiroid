@@ -74,7 +74,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                         ],
                         'message' => [
                             //header('Content-Type: image/jpg'),
-                            'image' => readfile('images/13090170_904137979695719_768070574_n.jpg', $image), 
+                            'image' => imagejpeg('images/13090170_904137979695719_768070574_n.jpg', $image), 
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
