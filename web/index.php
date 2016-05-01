@@ -73,7 +73,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'id' => $from, 
                         ],
                         'message' => [
-                            'text' => imagejpeg('images/13090170_904137979695719_768070574_n.jpg'), 
+                            'text' => sprintf('う', $text), 
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
