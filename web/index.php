@@ -61,11 +61,12 @@ $app->post('/callback', function (Request $request) use ($app) {
                         ],
                         'message' => [
                             'text' => sprintf('い', $text), 
-			     'attachment':{
-				    "type":"image",
-				    "payload":{
-					"url":"https://adachiroid.herokuapp.com/images/13090170_904137979695719_768070574_n.jpg"
+			     'attachment' : {
+				    "type" :"image",
+				    "payload" : {
+					"url" :kj"https://adachiroid.herokuapp.com/images/13090170_904137979695719_768070574_n.jpg"
 				    }
+				}
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
