@@ -60,13 +60,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'id' => $from, 
                         ],
                         'message' => [
-                            'text' => sprintf('い', $text), 
-			     'attachment' : {
-				    "type" :"image",
-				    "payload" : {
-					"url" :kj"https://adachiroid.herokuapp.com/images/13090170_904137979695719_768070574_n.jpg"
-				    }
-				}
+                            'text' => sprintf('いいい', $text), 
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
