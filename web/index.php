@@ -40,20 +40,20 @@ $app->post('/callback', function (Request $request) use ($app) {
 
             switch ($text) {
 
-                case '%こんにちは%':case 'こんにちわ':case 'はろー':case 'ハロー':
+                case 'こんにちは':case 'こんにちわ':case 'はろー':case 'ハロー':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
                         'recipient' => [
                             'id' => $from, 
                         ],
                         'message' => [
-                            'text' => sprintf('あ', $text), 
+                            'text' => sprintf('ハロー', $text), 
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
-                case 'い':
+                case '元気？':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
                         'recipient' => [
@@ -71,7 +71,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
-                case 'う':
+                case strpos($subject,'？'):
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
                         'recipient' => [
