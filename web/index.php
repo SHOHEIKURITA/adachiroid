@@ -64,7 +64,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'attachment' => [
                                   'type' => 'image',
                                   'payload' => [
-                                      'url' => 'https://adachiroid.herokuapp.com/images/13090170_904137979695719_768070574_n.jpg',
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13125193_907149892727861_1078452890_n.gif',
                                   ],
                               ],
                         ],
