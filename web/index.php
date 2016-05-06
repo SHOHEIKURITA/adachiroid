@@ -40,7 +40,7 @@ $app->post('/callback', function (Request $request) use ($app) {
 
             switch ($text) {
 
-                case 'こんにちは':case '$こんにちわ':case 'はろー':case 'ハロー':
+                case '%こんにちは%':case 'こんにちわ':case 'はろー':case 'ハロー':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
                         'recipient' => [
