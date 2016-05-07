@@ -162,24 +162,6 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
-                case 'がんばったね':case '頑張ったね':case 'がんばった':case '頑張った':case 'おめでとう':
-                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-                    $json = [
-                        'recipient' => [
-                            'id' => $from, 
-                        ],
-                        'message' => [
-                            'attachment' => [
-                                  'type' => 'image',
-                                  'payload' => [
-                                      'url' => 'https://adachiroid.herokuapp.com/images/13170796_908165289292988_390499661_o.jpg',
-                                  ],
-                              ],
-                        ],
-                    ];
-                    $client->request('POST', $path, ['json' => $json]);
-                break;
-
                 case '学長ってどんな人？':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
@@ -214,6 +196,19 @@ $app->post('/callback', function (Request $request) use ($app) {
                         ],
                         'message' => [
                             'text' => sprintf('みなさま良い1日を', $text), 
+                        ],
+                    ];
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'attachment' => [
+                                  'type' => 'image',
+                                  'payload' => [
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13170796_908165289292988_390499661_o.jpg',
+                                  ],
+                              ],
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
