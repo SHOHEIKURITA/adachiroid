@@ -197,11 +197,6 @@ $app->post('/callback', function (Request $request) use ($app) {
                         'message' => [
                             'text' => sprintf('みなさま良い1日を', $text), 
                         ],
-                    ];
-                    $json = [
-                        'recipient' => [
-                            'id' => $from, 
-                        ],
                         'message' => [
                             'attachment' => [
                                   'type' => 'image',
