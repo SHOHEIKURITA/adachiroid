@@ -66,6 +66,24 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
+                case '元気？':case '調子どう？':
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'attachment' => [
+                                  'type' => 'image',
+                                  'payload' => [
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13170052_908165282626322_1192429902_o.jpg',
+                                  ],
+                              ],
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+                break;
+
                 case '大丈夫？':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
@@ -144,6 +162,24 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
+                case 'がんばったね':case '頑張ったね':case 'がんばった':case '頑張った':case 'おめでとう':
+                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
+                    $json = [
+                        'recipient' => [
+                            'id' => $from, 
+                        ],
+                        'message' => [
+                            'attachment' => [
+                                  'type' => 'image',
+                                  'payload' => [
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13170796_908165289292988_390499661_o.jpg',
+                                  ],
+                              ],
+                        ],
+                    ];
+                    $client->request('POST', $path, ['json' => $json]);
+                break;
+
                 case '学長ってどんな人？':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
@@ -157,19 +193,6 @@ $app->post('/callback', function (Request $request) use ($app) {
                     $client->request('POST', $path, ['json' => $json]);
                 break;
 
-                case '笹野さんってどんな人？':
-                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-                    $json = [
-                        'recipient' => [
-                            'id' => $from, 
-                        ],
-                        'message' => [
-                            'text' => sprintf('お兄ちゃんみないなひと', $text), 
-                        ],
-                    ];
-                    $client->request('POST', $path, ['json' => $json]);
-                break;
-
                 case '塩谷先生ってどんな人？':
                     $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
                     $json = [
@@ -178,19 +201,6 @@ $app->post('/callback', function (Request $request) use ($app) {
                         ],
                         'message' => [
                             'text' => sprintf('目力強いから気をつけて', $text), 
-                        ],
-                    ];
-                    $client->request('POST', $path, ['json' => $json]);
-                break;
-
-                case '和田さんってどんな人？':
-                    $path = sprintf('me/messages?access_token=%s', getenv('FACEBOOK_PAGE_ACCESS_TOKEN'));
-                    $json = [
-                        'recipient' => [
-                            'id' => $from, 
-                        ],
-                        'message' => [
-                            'text' => sprintf('お姉ちゃんみたいなひと', $text), 
                         ],
                     ];
                     $client->request('POST', $path, ['json' => $json]);
@@ -219,7 +229,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'attachment' => [
                                   'type' => 'image',
                                   'payload' => [
-                                      'url' => 'https://adachiroid.herokuapp.com/images/01.jpg',
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13148248_908165285959655_338625201_o.jpg',
                                   ],
                               ],
                         ],
@@ -237,7 +247,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'attachment' => [
                                   'type' => 'image',
                                   'payload' => [
-                                      'url' => 'https://adachiroid.herokuapp.com/images/13082079_904138323029018_928492546_n.jpg',
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13161073_908165292626321_1730641494_o.jpg',
                                   ],
                               ],
                         ],
@@ -255,7 +265,7 @@ $app->post('/callback', function (Request $request) use ($app) {
                             'attachment' => [
                                   'type' => 'image',
                                   'payload' => [
-                                      'url' => 'https://adachiroid.herokuapp.com/images/13125193_907149892727861_1078452890_n.gif',
+                                      'url' => 'https://adachiroid.herokuapp.com/images/13169823_908166372626213_1122474700_o.jpg',
                                   ],
                               ],
                         ],
